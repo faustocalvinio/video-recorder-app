@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoPlayCircleSharp, IoStopSharp } from "react-icons/io5";
 
 const App = () => {
@@ -13,7 +13,6 @@ const App = () => {
     const mediarecorder = new MediaRecorder(media, {
       mimeType: "video/webm;codecs=vp8,opus",
     });
-    
 
     mediarecorder.start();
     setIsPlaying(true);
@@ -45,13 +44,15 @@ const App = () => {
     setFileName(fileName);
   }
 
-  //   useEffect(() => {
-  //   }, [audioOption]);
+  useEffect(() => {
+    localStorage.clear();
+    console.log("local storage cleared");
+  }, []);
 
   return (
-    <div className="flex aspect-square w-fit min-w-[400px] flex-col justify-center gap-2 rounded-lg bg-blue-900 px-4 py-2">
+    <div className="flex aspect-square w-fit min-w-[400px] flex-col items-center justify-center gap-2 rounded-lg border border-purple-950 bg-gray-900 px-4 py-2 text-white">
       <h1>Video recorderer</h1>
-      <h2>Format</h2>
+      {/* <h2>Format</h2>
       <select
         name=""
         id=""
@@ -59,7 +60,7 @@ const App = () => {
       >
         <option value="">webm</option>
         <option value="">mp4</option>
-      </select>
+      </select> */}
       <h2>Want audio?</h2>
       <label className="relative inline-flex cursor-pointer items-center">
         <input
@@ -76,23 +77,27 @@ const App = () => {
         type="text"
         value={fileName}
         onChange={(e) => setFileName(e.target.value)}
-        className="border border-white bg-transparent p-2 text-white"
+        className="w-full border border-white bg-transparent p-2 text-white"
         placeholder="File name"
       />
-      <button onClick={onSetHourFile} type="button">
+      <button
+        onClick={onSetHourFile}
+        type="button"
+        className="w-full bg-blue-900 px-4 py-2"
+      >
         set date and hour
       </button>
       {isPlaying ? (
         <IoStopSharp
-          size={200}
-          color="red"
+          size={130}
+          color="#9194ff"
           onClick={() => {}}
           className="cursor-pointer transition-all hover:scale-110"
         />
       ) : (
         <IoPlayCircleSharp
-          size={200}
-          color="red"
+          size={130}
+          color="#9194ff"
           onClick={recordVideoHandler}
           className="cursor-pointer transition-all hover:scale-110"
         />
