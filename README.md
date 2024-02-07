@@ -3,5 +3,5 @@
 Just a little project 🙂
 
 #### ToDo:
-1) Lorem ipsum
-2) Light Mode check
+1) "dejar de compartir" luego de hacer stop
+2) styles on title
