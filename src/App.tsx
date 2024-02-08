@@ -52,7 +52,7 @@ const App = () => {
       setIsPlaying(false);
       const link = document.createElement("a");
       link.href = URL.createObjectURL(e.data);
-      link.download = `${fileName === "" ? "capture" : fileName}.webm`;
+      link.download = `${fileName === "" ? `capture-${getDateAsString()}` : fileName}.mp4`;
       link.click();
     });
   }
