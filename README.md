@@ -1,7 +1,5 @@
-# Media Recorderer App
+# Media Recorder App :video_camera:
 
-Just a little project 🙂
+This is a very simple and small application to use the MediaRecorder API of JavaScript and be able to capture video from your computer or any browser tab. You can also assign a name to the file to download. It only uses the WEBM format.
 
-#### ToDo:
-1) "dejar de compartir" luego de hacer stop
-2) styles on title
+![App Screenshot](./public/app-screenshot.png)
